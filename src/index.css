@@ -1,3 +1,6 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Merriweather:wght@400;700&family=Poppins:wght@400;500;600;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -35,19 +38,12 @@
     --radius: 0.5rem;
 
     --sidebar-background: 0 0% 98%;
-
     --sidebar-foreground: 240 5.3% 26.1%;
-
     --sidebar-primary: 240 5.9% 10%;
-
     --sidebar-primary-foreground: 0 0% 98%;
-
     --sidebar-accent: 240 4.8% 95.9%;
-
     --sidebar-accent-foreground: 240 5.9% 10%;
-
     --sidebar-border: 220 13% 91%;
-
     --sidebar-ring: 217.2 91.2% 59.8%;
   }
 
@@ -97,5 +93,59 @@
 
   body {
     @apply bg-background text-foreground;
+    font-family: 'Inter', sans-serif;
+  }
+}
+
+.template-modern .resume-header {
+  @apply bg-resume-secondary text-white p-6;
+}
+
+.template-modern .resume-section-title {
+  @apply text-resume-secondary font-bold border-b-2 border-resume-secondary mb-2;
+}
+
+.template-classic .resume-header {
+  @apply border-b-4 border-resume-primary pb-4;
+}
+
+.template-classic .resume-section-title {
+  @apply text-resume-primary font-bold uppercase mb-2;
+}
+
+.template-minimal .resume-header {
+  @apply text-center mb-6;
+}
+
+.template-minimal .resume-section-title {
+  @apply text-resume-accent font-bold uppercase mb-2;
+}
+
+.template-professional .resume-header {
+  @apply flex border-b-2 border-resume-secondary py-4;
+}
+
+.template-professional .resume-header-content {
+  @apply flex-1;
+}
+
+.template-professional .resume-section-title {
+  @apply text-resume-primary font-bold border-b border-resume-muted mb-2;
+}
+
+@media print {
+  body * {
+    visibility: hidden;
+  }
+  
+  .resume-preview, .resume-preview * {
+    visibility: visible;
+  }
+  
+  .resume-preview {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
   }
 }
