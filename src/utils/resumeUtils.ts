@@ -1,7 +1,6 @@
-
 import { v4 as uuidv4 } from 'uuid';
-import { Experience, Education, Skill, Project, ResumeData, ResumeTemplate } from '@/types/resume';
 import html2pdf from 'html2pdf.js';
+import { Experience, Education, Skill, Project, ResumeData, ResumeTemplate } from '@/types/resume';
 
 export const generateId = (): string => {
   return uuidv4();
