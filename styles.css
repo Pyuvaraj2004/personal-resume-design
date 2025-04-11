@@ -1,0 +1,513 @@
+
+:root {
+  --background: #ffffff;
+  --foreground: #1a1a1a;
+  --primary: #0f172a;
+  --primary-foreground: #ffffff;
+  --secondary: #f1f5f9;
+  --secondary-foreground: #0f172a;
+  --muted: #f8fafc;
+  --muted-foreground: #64748b;
+  --accent: #f8fafc;
+  --accent-foreground: #0f172a;
+  --destructive: #ef4444;
+  --border: #e2e8f0;
+  --input: #e2e8f0;
+  --ring: #0f172a;
+  --radius: 0.5rem;
+  
+  --resume-primary: #0f172a;
+  --resume-secondary: #2563eb;
+  --resume-accent: #4f46e5;
+  --resume-muted: #6b7280;
+  --resume-card: #f1f5f9;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Inter', sans-serif;
+}
+
+body {
+  background-color: #f8fafc;
+  color: var(--foreground);
+  line-height: 1.5;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+header {
+  background-color: white;
+  border-bottom: 1px solid var(--border);
+  padding: 1rem 0;
+}
+
+header h1 {
+  text-align: center;
+  font-size: 1.75rem;
+  font-weight: 700;
+}
+
+main {
+  padding: 2rem 0;
+}
+
+footer {
+  background-color: white;
+  border-top: 1px solid var(--border);
+  padding: 1.5rem 0;
+  text-align: center;
+  color: var(--muted-foreground);
+}
+
+/* Button styles */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border-radius: var(--radius);
+  font-weight: 500;
+  font-size: 0.875rem;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn svg {
+  width: 16px;
+  height: 16px;
+}
+
+.btn-primary {
+  background-color: var(--primary);
+  color: var(--primary-foreground);
+  border: none;
+}
+
+.btn-primary:hover {
+  background-color: color-mix(in srgb, var(--primary) 90%, black);
+}
+
+.btn-outline {
+  background-color: transparent;
+  color: var(--foreground);
+  border: 1px solid var(--border);
+}
+
+.btn-outline:hover {
+  background-color: var(--accent);
+}
+
+.btn-add {
+  margin-top: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.btn-remove {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--muted-foreground);
+}
+
+.btn-remove:hover {
+  color: var(--destructive);
+}
+
+.btn-block {
+  display: block;
+  width: 100%;
+}
+
+/* Grid layout */
+.grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 2rem;
+}
+
+@media (max-width: 768px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Card styles */
+.card {
+  background-color: white;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  margin-bottom: 1.5rem;
+}
+
+.card-content {
+  padding: 1.5rem;
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.card-header h3 {
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+/* Form styles */
+.input-group {
+  margin-bottom: 1rem;
+}
+
+.input-group label {
+  display: block;
+  font-size: 0.875rem;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+}
+
+input, textarea, select {
+  width: 100%;
+  border: 1px solid var(--input);
+  border-radius: var(--radius);
+  padding: 0.5rem;
+  font-size: 0.875rem;
+  background-color: white;
+}
+
+textarea {
+  resize: vertical;
+}
+
+input:focus, textarea:focus, select:focus {
+  outline: none;
+  border-color: var(--ring);
+  box-shadow: 0 0 0 2px rgba(15, 23, 42, 0.1);
+}
+
+.hint-text {
+  font-size: 0.75rem;
+  color: var(--muted-foreground);
+  margin-top: 0.25rem;
+}
+
+.checkbox-group {
+  display: flex;
+  align-items: center;
+  margin-top: 0.5rem;
+}
+
+.checkbox-group input[type="checkbox"] {
+  width: auto;
+  margin-right: 0.5rem;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.full-width {
+  grid-column: span 2;
+}
+
+@media (max-width: 640px) {
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .full-width {
+    grid-column: span 1;
+  }
+}
+
+h2 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+/* Tabs */
+.tabs {
+  margin-top: 1rem;
+}
+
+.tab-buttons {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1px;
+  margin-bottom: 1.5rem;
+  background-color: var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+
+.tab-button {
+  background-color: var(--secondary);
+  border: none;
+  padding: 0.75rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  text-align: center;
+}
+
+.tab-button.active {
+  background-color: white;
+  color: var(--primary);
+}
+
+.tab-content {
+  display: none;
+}
+
+.tab-content.active {
+  display: block;
+}
+
+/* Action buttons */
+.action-buttons {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: flex-end;
+  margin-bottom: 1rem;
+}
+
+/* Template selector */
+.template-selector {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.template-option {
+  position: relative;
+}
+
+.template-option input[type="radio"] {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.template-option label {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+}
+
+.template-preview {
+  height: 120px;
+  width: 100%;
+  border: 2px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  transition: all 0.2s ease;
+  margin-bottom: 0.5rem;
+}
+
+.template-option input[type="radio"]:checked + label .template-preview {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 2px rgba(15, 23, 42, 0.2);
+}
+
+.template-preview .preview-content {
+  height: 100%;
+  width: 100%;
+  padding: 0.5rem;
+  background-color: white;
+}
+
+/* Template specific preview styles */
+.template-modern .preview-content {
+  padding-top: 20px;
+  position: relative;
+}
+
+.template-modern .preview-content::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 20px;
+  background-color: var(--resume-secondary);
+}
+
+.template-classic .preview-content {
+  padding-top: 5px;
+  position: relative;
+}
+
+.template-classic .preview-content::before {
+  content: '';
+  position: absolute;
+  top: 20px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background-color: var(--resume-primary);
+}
+
+.template-minimal .preview-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.template-minimal .preview-content::before {
+  content: '';
+  display: block;
+  width: 50%;
+  height: 2px;
+  background-color: var(--resume-accent);
+  margin: 10px 0;
+}
+
+.template-professional .preview-content {
+  display: flex;
+  padding-top: 5px;
+  position: relative;
+}
+
+.template-professional .preview-content::before {
+  content: '';
+  position: absolute;
+  top: 25px;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background-color: var(--resume-secondary);
+}
+
+/* Resume preview */
+.resume-mini-preview {
+  margin-top: 1.5rem;
+}
+
+.mini-preview-container {
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  height: 200px;
+  overflow: hidden;
+  margin-bottom: 1rem;
+}
+
+.mini-preview {
+  transform: scale(0.25);
+  transform-origin: top left;
+  width: 400%;
+  height: 400%;
+  background-color: white;
+}
+
+.preview-container {
+  background-color: var(--muted);
+  padding: 2rem;
+  border-radius: var(--radius);
+  min-height: 800px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.resume-preview {
+  background-color: white;
+  width: 100%;
+  max-width: 8.5in;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin-bottom: 2rem;
+  min-height: 11in;
+}
+
+.preview-actions {
+  display: flex;
+  gap: 1rem;
+  margin-top: auto;
+}
+
+/* Resume template styles */
+.template-modern .resume-header {
+  background-color: var(--resume-secondary);
+  color: white;
+  padding: 1.5rem;
+}
+
+.template-modern .resume-section-title {
+  color: var(--resume-secondary);
+  font-weight: 600;
+  border-bottom: 2px solid var(--resume-secondary);
+  margin-bottom: 0.5rem;
+}
+
+.template-classic .resume-header {
+  border-bottom: 4px solid var(--resume-primary);
+  padding-bottom: 1rem;
+}
+
+.template-classic .resume-section-title {
+  color: var(--resume-primary);
+  font-weight: 600;
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+}
+
+.template-minimal .resume-header {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.template-minimal .resume-section-title {
+  color: var(--resume-accent);
+  font-weight: 600;
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+}
+
+.template-professional .resume-header {
+  display: flex;
+  border-bottom: 2px solid var(--resume-secondary);
+  padding: 1rem 0;
+}
+
+.template-professional .resume-header-content {
+  flex: 1;
+}
+
+.template-professional .resume-section-title {
+  color: var(--resume-primary);
+  font-weight: 600;
+  border-bottom: 1px solid var(--resume-muted);
+  margin-bottom: 0.5rem;
+}
+
+/* Print styles */
+@media print {
+  body * {
+    visibility: hidden;
+  }
+  
+  .resume-preview, .resume-preview * {
+    visibility: visible;
+  }
+  
+  .resume-preview {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+  }
+}
