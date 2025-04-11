@@ -4,13 +4,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Resume Builder - Create Professional Resumes</title>
-  <meta name="description" content="Create and download professional resumes with our easy-to-use resume builder. Choose from multiple templates and get hired faster.">
+  <title>Resume Builder</title>
   <link rel="stylesheet" href="styles.css">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap">
-  <script src="https://cdn.gpteng.co/gptengineer.js" type="module"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
-  <script src="https://unpkg.com/feather-icons"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
   <header>
@@ -20,18 +18,6 @@
   </header>
 
   <main class="container">
-    <div class="action-buttons">
-      <button id="loadResume" class="btn btn-outline">
-        <i data-feather="file-up"></i> Load
-      </button>
-      <button id="saveResume" class="btn btn-outline">
-        <i data-feather="save"></i> Save
-      </button>
-      <button id="newResume" class="btn btn-outline">
-        <i data-feather="file-plus"></i> New
-      </button>
-    </div>
-
     <div class="tabs">
       <div class="tab-buttons">
         <button id="buildTab" class="tab-button active">Build Resume</button>
@@ -68,10 +54,6 @@
                   <label for="website">Website (Optional)</label>
                   <input type="text" id="website" name="website" placeholder="johndoe.com">
                 </div>
-                <div class="input-group">
-                  <label for="github">GitHub (Optional)</label>
-                  <input type="text" id="github" name="github" placeholder="github.com/johndoe">
-                </div>
               </div>
             </div>
 
@@ -79,9 +61,8 @@
             <div class="card">
               <div class="card-content">
                 <div class="input-group">
-                  <label for="summary">Professional Summary (Optional)</label>
+                  <label for="summary">Professional Summary</label>
                   <textarea id="summary" name="summary" rows="4" placeholder="A brief summary of your professional background, strengths, and career objectives."></textarea>
-                  <p class="hint-text">A concise 2-4 sentence summary highlighting your experience, key skills, and what makes you unique.</p>
                 </div>
               </div>
             </div>
@@ -91,7 +72,7 @@
               <!-- Experience items will be added here -->
             </div>
             <button id="addExperience" class="btn btn-outline btn-add">
-              <i data-feather="plus"></i> Add Experience
+              <i class="fas fa-plus"></i> Add Experience
             </button>
 
             <h2>Education</h2>
@@ -99,7 +80,7 @@
               <!-- Education items will be added here -->
             </div>
             <button id="addEducation" class="btn btn-outline btn-add">
-              <i data-feather="plus"></i> Add Education
+              <i class="fas fa-plus"></i> Add Education
             </button>
 
             <h2>Skills</h2>
@@ -107,7 +88,7 @@
               <!-- Skill items will be added here -->
             </div>
             <button id="addSkill" class="btn btn-outline btn-add">
-              <i data-feather="plus"></i> Add Skill
+              <i class="fas fa-plus"></i> Add Skill
             </button>
           </div>
           
@@ -143,20 +124,11 @@
                       <span>Minimal</span>
                     </label>
                   </div>
-                  <div class="template-option">
-                    <input type="radio" id="template-professional" name="template" value="professional">
-                    <label for="template-professional">
-                      <div class="template-preview template-professional">
-                        <div class="preview-content"></div>
-                      </div>
-                      <span>Professional</span>
-                    </label>
-                  </div>
                 </div>
               </div>
             </div>
             
-            <div class="resume-mini-preview card">
+            <div class="resume-mini-preview">
               <h3>Resume Preview</h3>
               <div class="mini-preview-container">
                 <div id="miniPreview" class="mini-preview"></div>
@@ -175,10 +147,10 @@
           
           <div class="preview-actions">
             <button id="downloadPDF" class="btn btn-primary">
-              <i data-feather="download"></i> Download PDF
+              <i class="fas fa-download"></i> Download PDF
             </button>
             <button id="printResume" class="btn btn-outline">
-              <i data-feather="printer"></i> Print
+              <i class="fas fa-print"></i> Print
             </button>
           </div>
         </div>
@@ -199,7 +171,7 @@
         <div class="card-header">
           <h3>Experience</h3>
           <button class="btn-remove" title="Remove experience">
-            <i data-feather="x"></i>
+            <i class="fas fa-times"></i>
           </button>
         </div>
         <div class="form-grid">
@@ -223,8 +195,8 @@
             <label for="expEndDate">End Date</label>
             <input type="month" class="exp-end-date">
             <div class="checkbox-group">
-              <input type="checkbox" class="exp-current" id="expCurrent">
-              <label for="expCurrent">I currently work here</label>
+              <input type="checkbox" class="exp-current">
+              <label>I currently work here</label>
             </div>
           </div>
           <div class="input-group full-width">
@@ -243,7 +215,7 @@
         <div class="card-header">
           <h3>Education</h3>
           <button class="btn-remove" title="Remove education">
-            <i data-feather="x"></i>
+            <i class="fas fa-times"></i>
           </button>
         </div>
         <div class="form-grid">
@@ -267,8 +239,8 @@
             <label for="eduEndDate">End Date</label>
             <input type="month" class="edu-end-date">
             <div class="checkbox-group">
-              <input type="checkbox" class="edu-current" id="eduCurrent">
-              <label for="eduCurrent">I am currently studying here</label>
+              <input type="checkbox" class="edu-current">
+              <label>I am currently studying here</label>
             </div>
           </div>
           <div class="input-group">
@@ -291,7 +263,7 @@
         <div class="card-header">
           <h3>Skill</h3>
           <button class="btn-remove" title="Remove skill">
-            <i data-feather="x"></i>
+            <i class="fas fa-times"></i>
           </button>
         </div>
         <div class="form-grid">

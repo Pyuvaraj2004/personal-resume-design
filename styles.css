@@ -1,8 +1,8 @@
 
 :root {
-  --background: #ffffff;
+  --background: #f8fafc;
   --foreground: #1a1a1a;
-  --primary: #0f172a;
+  --primary: #3b82f6;
   --primary-foreground: #ffffff;
   --secondary: #f1f5f9;
   --secondary-foreground: #0f172a;
@@ -13,7 +13,6 @@
   --destructive: #ef4444;
   --border: #e2e8f0;
   --input: #e2e8f0;
-  --ring: #0f172a;
   --radius: 0.5rem;
   
   --resume-primary: #0f172a;
@@ -27,11 +26,11 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Inter', sans-serif;
+  font-family: 'Roboto', sans-serif;
 }
 
 body {
-  background-color: #f8fafc;
+  background-color: var(--background);
   color: var(--foreground);
   line-height: 1.5;
 }
@@ -52,6 +51,7 @@ header h1 {
   text-align: center;
   font-size: 1.75rem;
   font-weight: 700;
+  color: var(--primary);
 }
 
 main {
@@ -80,11 +80,6 @@ footer {
   transition: all 0.2s ease;
 }
 
-.btn svg {
-  width: 16px;
-  height: 16px;
-}
-
 .btn-primary {
   background-color: var(--primary);
   color: var(--primary-foreground);
@@ -92,7 +87,7 @@ footer {
 }
 
 .btn-primary:hover {
-  background-color: color-mix(in srgb, var(--primary) 90%, black);
+  background-color: #2563eb;
 }
 
 .btn-outline {
@@ -191,14 +186,8 @@ textarea {
 
 input:focus, textarea:focus, select:focus {
   outline: none;
-  border-color: var(--ring);
-  box-shadow: 0 0 0 2px rgba(15, 23, 42, 0.1);
-}
-
-.hint-text {
-  font-size: 0.75rem;
-  color: var(--muted-foreground);
-  margin-top: 0.25rem;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.1);
 }
 
 .checkbox-group {
@@ -276,18 +265,10 @@ h2 {
   display: block;
 }
 
-/* Action buttons */
-.action-buttons {
-  display: flex;
-  gap: 0.5rem;
-  justify-content: flex-end;
-  margin-bottom: 1rem;
-}
-
 /* Template selector */
 .template-selector {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
   gap: 1rem;
 }
 
@@ -321,7 +302,7 @@ h2 {
 
 .template-option input[type="radio"]:checked + label .template-preview {
   border-color: var(--primary);
-  box-shadow: 0 0 0 2px rgba(15, 23, 42, 0.2);
+  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.2);
 }
 
 .template-preview .preview-content {
@@ -377,25 +358,20 @@ h2 {
   margin: 10px 0;
 }
 
-.template-professional .preview-content {
-  display: flex;
-  padding-top: 5px;
-  position: relative;
-}
-
-.template-professional .preview-content::before {
-  content: '';
-  position: absolute;
-  top: 25px;
-  left: 0;
-  right: 0;
-  height: 1px;
-  background-color: var(--resume-secondary);
-}
-
 /* Resume preview */
 .resume-mini-preview {
   margin-top: 1.5rem;
+  background-color: white;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  padding: 1.5rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.resume-mini-preview h3 {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
 }
 
 .mini-preview-container {
@@ -431,6 +407,7 @@ h2 {
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   margin-bottom: 2rem;
   min-height: 11in;
+  padding: 1rem;
 }
 
 .preview-actions {
@@ -444,6 +421,7 @@ h2 {
   background-color: var(--resume-secondary);
   color: white;
   padding: 1.5rem;
+  margin: -1rem -1rem 1rem -1rem;
 }
 
 .template-modern .resume-section-title {
@@ -456,6 +434,7 @@ h2 {
 .template-classic .resume-header {
   border-bottom: 4px solid var(--resume-primary);
   padding-bottom: 1rem;
+  margin-bottom: 1rem;
 }
 
 .template-classic .resume-section-title {
@@ -475,23 +454,11 @@ h2 {
   font-weight: 600;
   text-transform: uppercase;
   margin-bottom: 0.5rem;
+  text-align: center;
 }
 
-.template-professional .resume-header {
-  display: flex;
-  border-bottom: 2px solid var(--resume-secondary);
-  padding: 1rem 0;
-}
-
-.template-professional .resume-header-content {
-  flex: 1;
-}
-
-.template-professional .resume-section-title {
-  color: var(--resume-primary);
-  font-weight: 600;
-  border-bottom: 1px solid var(--resume-muted);
-  margin-bottom: 0.5rem;
+.template-minimal .resume-section {
+  margin-bottom: 1.5rem;
 }
 
 /* Print styles */
@@ -509,5 +476,6 @@ h2 {
     left: 0;
     top: 0;
     width: 100%;
+    box-shadow: none;
   }
 }
